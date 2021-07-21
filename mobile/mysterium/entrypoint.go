@@ -92,8 +92,8 @@ type MobileNodeOptions struct {
 	KeepConnectedOnFail            bool
 	MysteriumAPIAddress            string
 	BrokerAddresses                []string
-	EtherClientRPCL1               string
-	EtherClientRPCL2               string
+	EtherClientRPCL1               []string
+	EtherClientRPCL2               []string
 	FeedbackURL                    string
 	QualityOracleURL               string
 	IPDetectorURL                  string

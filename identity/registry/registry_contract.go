@@ -50,13 +50,13 @@ type contractRegistry struct {
 	once      sync.Once
 	publisher eventbus.Publisher
 	lock      sync.Mutex
-	ethC      *paymentClient.ReconnectableEthClient
+	ethC      paymentClient.EtherClient
 	ap        AddressProvider
 	hermes    hermesCaller
 }
 
 // NewIdentityRegistryContract creates identity registry service which uses blockchain for information
-func NewIdentityRegistryContract(ethClient *paymentClient.ReconnectableEthClient, ap AddressProvider, registryStorage registryStorage, publisher eventbus.Publisher, caller hermesCaller) (*contractRegistry, error) {
+func NewIdentityRegistryContract(ethClient paymentClient.EtherClient, ap AddressProvider, registryStorage registryStorage, publisher eventbus.Publisher, caller hermesCaller) (*contractRegistry, error) {
 	return &contractRegistry{
 		storage:   registryStorage,
 		stop:      make(chan struct{}),
@@ -232,7 +232,7 @@ func (registry *contractRegistry) subscribeToRegistrationEvent(chainID int64, id
 		log.Info().Msgf("Waiting on identities %s hermes %s", userIdentities[0].Hex(), hermes.Hex())
 		sink := make(chan *bindings.RegistryRegisteredIdentity)
 
-		filterer, err := bindings.NewRegistryFilterer(reg, registry.ethC.Client())
+		filterer, err := bindings.NewRegistryFilterer(reg, registry.ethC)
 		if err != nil {
 			log.Error().Err(err).Msg("could not create registry filterer")
 			return
@@ -390,7 +390,7 @@ func (registry *contractRegistry) bcRegistrationStatus(chainID int64, id identit
 		return RegistrationError, err
 	}
 
-	contract, err := bindings.NewRegistryCaller(reg, registry.ethC.Client())
+	contract, err := bindings.NewRegistryCaller(reg, registry.ethC)
 	if err != nil {
 		return RegistrationError, fmt.Errorf("could not get registry caller %w", err)
 	}
@@ -402,7 +402,7 @@ func (registry *contractRegistry) bcRegistrationStatus(chainID int64, id identit
 		},
 	}
 
-	hermesContract, err := bindings.NewHermesImplementationCaller(hermes, registry.ethC.Client())
+	hermesContract, err := bindings.NewHermesImplementationCaller(hermes, registry.ethC)
 	if err != nil {
 		return RegistrationError, fmt.Errorf("could not get hermes implementation caller %w", err)
 	}

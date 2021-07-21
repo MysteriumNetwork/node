@@ -43,7 +43,7 @@ type ChainDefinition struct {
 	ChannelImplAddress string
 	ChainID            int64
 	MystAddress        string
-	EtherClientRPC     string
+	EtherClientRPC     []string
 }
 
 // Payments defines payments configuration
@@ -72,7 +72,9 @@ var Testnet3Definition = NetworkDefinition{
 		HermesID:           "0x7119442C7E627438deb0ec59291e31378F88DD06",
 		ChainID:            5,
 		MystAddress:        "0xf74a5ca65E4552CfF0f13b116113cCb493c580C5",
-		EtherClientRPC:     "wss://goerli.infura.io/ws/v3/c2c7da73fcc84ec5885a7bb0eb3c3637",
+		EtherClientRPC: []string{
+			"wss://goerli.infura.io/ws/v3/c2c7da73fcc84ec5885a7bb0eb3c3637",
+		},
 	},
 	Chain2: ChainDefinition{
 		RegistryAddress:    "0xDFAB03C9fbDbef66dA105B88776B35bfd7743D39",
@@ -80,7 +82,9 @@ var Testnet3Definition = NetworkDefinition{
 		HermesID:           "0x7119442C7E627438deb0ec59291e31378F88DD06",
 		ChainID:            80001,
 		MystAddress:        "0xB923b52b60E247E34f9afE6B3fa5aCcBAea829E8",
-		EtherClientRPC:     "wss://rpc-mumbai.maticvigil.com/ws/v1/8b19c8a6bfbeaee32af34d8df479b1c9558571a5",
+		EtherClientRPC: []string{
+			"wss://rpc-mumbai.maticvigil.com/ws/v1/8b19c8a6bfbeaee32af34d8df479b1c9558571a5",
+		},
 	},
 	MMNAddress:      "https://mmn3.mysterium.network/",
 	MMNAPIAddress:   "https://mmn3.mysterium.network/api/v1",

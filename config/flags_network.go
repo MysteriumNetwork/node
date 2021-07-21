@@ -54,16 +54,16 @@ var (
 		Value: cli.NewStringSlice(metadata.DefaultNetwork.BrokerAddresses...),
 	}
 	// FlagEtherRPCL1 URL or IPC socket to connect to Ethereum node.
-	FlagEtherRPCL1 = cli.StringFlag{
+	FlagEtherRPCL1 = cli.StringSliceFlag{
 		Name:  "ether.client.rpcl1",
 		Usage: "L1 URL or IPC socket to connect to ethereum node, anything what ethereum client accepts - works",
-		Value: metadata.DefaultNetwork.Chain1.EtherClientRPC,
+		Value: cli.NewStringSlice(metadata.DefaultNetwork.Chain1.EtherClientRPC...),
 	}
 	// FlagEtherRPCL2 URL or IPC socket to connect to Ethereum node.
-	FlagEtherRPCL2 = cli.StringFlag{
+	FlagEtherRPCL2 = cli.StringSliceFlag{
 		Name:  "ether.client.rpcl2",
 		Usage: "L2 URL or IPC socket to connect to ethereum node, anything what ethereum client accepts - works",
-		Value: metadata.DefaultNetwork.Chain2.EtherClientRPC,
+		Value: cli.NewStringSlice(metadata.DefaultNetwork.Chain2.EtherClientRPC...),
 	}
 	// FlagNATPunching enables NAT hole punching.
 	FlagNATPunching = cli.BoolFlag{
@@ -129,8 +129,8 @@ func ParseFlagsNetwork(ctx *cli.Context) {
 	Current.ParseBoolFlag(ctx, FlagTestnet3)
 	Current.ParseStringFlag(ctx, FlagAPIAddress)
 	Current.ParseStringSliceFlag(ctx, FlagBrokerAddress)
-	Current.ParseStringFlag(ctx, FlagEtherRPCL1)
-	Current.ParseStringFlag(ctx, FlagEtherRPCL2)
+	Current.ParseStringSliceFlag(ctx, FlagEtherRPCL1)
+	Current.ParseStringSliceFlag(ctx, FlagEtherRPCL2)
 	Current.ParseBoolFlag(ctx, FlagPortMapping)
 	Current.ParseBoolFlag(ctx, FlagNATPunching)
 	Current.ParseBoolFlag(ctx, FlagIncomingFirewall)

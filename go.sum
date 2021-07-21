@@ -935,6 +935,10 @@ github.com/mysteriumnetwork/metrics v0.0.15 h1:qr3GlJLs30iMm3mcEYlN9PUjh1tcRaWCt
 github.com/mysteriumnetwork/metrics v0.0.15/go.mod h1:QQHdm9M0p42hESbtM0dxyeooH66QTGtXAArz8qsi4Ds=
 github.com/mysteriumnetwork/payments v0.2.1-0.20210623095035-6713a728aea0 h1:uNqX2G52huSLqvJszZpj0C2lMbrIgFFR5Qoksorb5ro=
 github.com/mysteriumnetwork/payments v0.2.1-0.20210623095035-6713a728aea0/go.mod h1:aC+9Bez+lFp19Fs8plh51HnblVJC0CDzHnnEzyidhpQ=
+github.com/mysteriumnetwork/payments v0.2.1-0.20210714092708-4b194675138c h1:CrTnYwisK+rEq3eLtJ5qnPb1Xq8RjmRIQkUIw5L/MyA=
+github.com/mysteriumnetwork/payments v0.2.1-0.20210714092708-4b194675138c/go.mod h1:aC+9Bez+lFp19Fs8plh51HnblVJC0CDzHnnEzyidhpQ=
+github.com/mysteriumnetwork/payments v0.2.1-0.20210721075819-975ddd4d49af h1:hkbmWkqksyLUYte81dl7ui/4WmUe0Mw1s8GGi9Z86gY=
+github.com/mysteriumnetwork/payments v0.2.1-0.20210721075819-975ddd4d49af/go.mod h1:aC+9Bez+lFp19Fs8plh51HnblVJC0CDzHnnEzyidhpQ=
 github.com/naoina/go-stringutil v0.1.0/go.mod h1:XJ2SJL9jCtBh+P9q5btrd/Ylo8XwT/h1USek5+NqSA0=
 github.com/naoina/toml v0.1.2-0.20170918210437-9fafd6967416/go.mod h1:NBIhNtsFMo3G2szEBne+bO4gS192HuIYRqfvOWb4i1E=
 github.com/nats-io/jwt v0.3.2 h1:+RB5hMpXUUA2dfxuhBTEkMOrYmM+gKIZYS1KjSostMI=
